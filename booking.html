@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Booking</title>
+			<meta http-equiv="content-type"
+		content="text/html;charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="mystyle2.css">
+		<script>
+			
+				function startTime() {
+					var today = new Date();
+					var h = today.getHours();
+					var m = today.getMinutes();
+					var s = today.getSeconds();
+					m = checkTime(m);
+					s = checkTime(s);
+					document.getElementById('txt').innerHTML =
+					h + ":" + m + ":" + s;
+					var t = setTimeout(startTime, 500);
+				}
+				function checkTime(i) {
+					if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+					return i;
+				}
+                  function clickedButton()
+            {
+
+                window.location = 'authorisation.html'
+
+            }
+          
+            
+   
+		</script>
+		<style>
+			i{
+			display:inline;
+			border: none;
+		}
+			
+		}
+		ul{
+			float:left;
+			width: 100%;
+			border: none;
+			
+		}
+		a{
+			float: left;
+			width: 7em;
+			background-color: black;
+			color: white;
+			margin-left: 10px;
+			font-size: 20px;
+			margin-top:10px;
+			border-style: solid;
+			border-width: 5px;
+			border-color: white;
+			opacity: 0.8;
+			text-decoration: none;
+			text-align: center;
+			
+			}
+		</style>
+	</head>
+	<body>
+	<header> Air-Direct
+	<div style= "float: right;color: white;font-size:35px;border-style: solid;width: 7em;border-width: 5px;border-color: white;" id="txt"></div>
+	<body onload="startTime()">
+	</header>
+	
+	<aside>
+	<li><a href="mainmenu.html">Main Menu</a></li><br>
+	
+	
+	
+	</aside>
+	<section>
+	<h2> Flight Details </h2>
+	<form style="margin: 20px;margin-left:40px;float: left;">
+		Departure City:<br>
+		<select name="DepartureCity">
+			<option value="Dublin">Dublin</option>
+			<option value="London">London</option>
+		</select>
+	</form>
+	<form style="margin: 20px;margin-left:40px;float: left;">
+		Destination:<br>
+		<select name="Destination">
+			<option value="Dublin">Dublin</option>
+			<option value="London">London</option>
+		</select>
+	</form>
+	<form style="margin: 20px;margin-left:40px;float: left;">
+		Flight Date:<br><input type="date" name="FlightDate" max="2015-12-02"><br>
+	</form>
+	<form style="margin: 20px;margin-left:40px;float: left;">
+		Departure Time:<br><input type="time" name="FlightTime"><br>
+	</form>
+	<form style="margin: 20px;margin-left:40px;float: left;">
+		<br><input type="submit" value="Submit">
+	</form>
+	</section>
+	<aside style="float: right;">
+	<h2> Attention</h2>
+		<p>All fields required for booking.</p><h2> Attention</h2><br><p> Passangers must be 16 or over.Born on or after 1/12/1999</p>
+		<h2> Attention</h2>
+	</aside>
+	
+	 
+	
+	
+	 <article>
+	 <h2> Passanger Details</h2>
+	 
+	 <form style="margin-left: 100px;float: left;"action="insert2.php" method="post">
+		
+		Passport Number:<br><input   type="text" name="PassportNumber" pattern="[a-zA-Z0-9]+" placeholder="a123" title="Please give input in this format - a123" maxlength="20" required ><br>
+
+		Title:<br><input list="Title" placeholder="Mr,Mrs,Ms" pattern="[A-Za-z\\s]*" title="Please select Mr,Mrs,Ms"  maxlength="3" name="Title" required><br>
+			<datalist id="Title">
+			<option value="Mr">
+			<option value="Mrs">
+			<option value="Ms">
+			</datalist>
+		
+		First Name:<br><input   type="text"  pattern="[A-Za-z\\s]*" title="Alphabet Only" maxlength="30" name="FirstName"required><br>
+	 
+		Surname:<br><input  type="text" pattern="[A-Za-z\\s]*" title="Alphabet Only" maxlength="30" name="Surname"required><br>
+		
+		Address 1:<br><input type="text" name="Address1" pattern="[a-zA-Z0-9\s]+" title="E.g 1 Renmore Road" maxlength="30" required><br>
+	
+		Address 2:<br><input type="text" name="Address2" title="E.g 1 Mayo,London. Alphabet Only" pattern="[a-zA-Z0-9\s]+"  maxlength="30" required><br>
+	
+		Country:<br><input type="text" name="Country" pattern="[a-zA-Z0-9]+" maxlength="20" title="Alphabet Only" required><br>
+	
+		DOB:<br><input type="date" name="Dob" value="dd/mm/yyyy" max="1999-12-01" required><br>
+		
+		Phone Number:<br><input type="tel" name="PhoneNumber" pattern="([1-9])" maxlength="15" title="Numbers Only" placeholder="000-0000000" required ><br>
+	
+		Email:<br><input type="email" name="Email" required><br>
+		
+	
+	
+		
+		<br><input type="submit" value="Submit">
+		
+	</form>
+
+	 </article>
+	<section>
+	<h2> Payment Details </h2>
+	
+	<form style="margin-left: 100px;float: left;"action="insert2.php" method="post">
+	Payment Type:<br>
+    <input list="Payment Type" name="Type" required><br>
+    <datalist id="Payment Type">
+    <option value="Cash">
+    <option value="Cheque">
+    <option value="Credit-Card">
+    <option value="Refund">
+    </datalist>
+	
+	
+	Amount Paid:<br>
+	<input list="Amount Paid" name="AmountPaid" required><br>
+    <datalist id="Amount Paid">
+    <option value="60.00">
+    <option value="75.00">
+    <option value="80.00">
+    <option value="100.00">
+    </datalist>
+	
+	
+	<br><input type="submit" onClick="clickedButton()">
+	</form>
+	</section>
+	<li><a style="margin-left: 380px; margin-bottom: 50px;border-color: red; opacity: 0.5;" href="authorisation.html">Authorisation</a></li>
+	
+	
+	
+	 <footer>Air-Direct</footer>
+	 </body>
+</html>
+	

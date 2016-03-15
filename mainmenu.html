@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> MainMenu</title>
+			<meta http-equiv="content-type"
+		content="text/html;charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="mystyle2.css">
+		<script>
+			
+				function startTime() {
+					var today = new Date();
+					var h = today.getHours();
+					var m = today.getMinutes();
+					var s = today.getSeconds();
+					m = checkTime(m);
+					s = checkTime(s);
+					document.getElementById('txt').innerHTML =
+					h + ":" + m + ":" + s;
+					var t = setTimeout(startTime, 500);
+				}
+				function checkTime(i) {
+					if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+					return i;
+				}
+
+		</script>
+		<style>
+		section{ 
+		background-color: black;
+		height: 500px;
+		width: 1200px;
+		float: left;
+		font-size: 20px;
+		}
+		li{
+			display:inline;
+			border: none;
+			text-align: center;
+			
+		}
+			
+		}
+		ul{
+			float:left;
+			border: none;
+			
+		}
+		a{
+			float: left;
+			width: 10em;
+			background-color: white;
+			color: black;
+			margin-left: 140px;
+			font-size: 40px;
+			margin-top: 50px;
+			border-style: solid;
+			border-width: 5px;
+			border-color: red;
+			opacity: 0.5;
+			text-decoration: none;
+		}
+	</style>
+	</head>
+	<body>
+		<header> Air-Direct
+		<div style= "float: right;color: white;font-size:35px;border-style: solid;width: 7em;border-width: 5px;border-color: white;" id="txt"></div>
+		<body onload="startTime()">
+		</header>
+
+
+<section style="opacity: 0.8;">
+		<li><a href="enquiry.php">Enquiry</a></li>
+		<li><a href="booking.html">Book a flight</a></li>
+		<li><a href="flightStatus.php">Status</a></li>
+		<li><a href="statistics.php">Statistics</a></li>
+		
+		
+</section>
+
+<footer> Air-Direct</footer>
+</body>
+</html>
